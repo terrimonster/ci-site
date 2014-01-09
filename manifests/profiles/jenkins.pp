@@ -1,7 +1,7 @@
 class ci::profiles::jenkins {
   include ::jenkins
   class { 'java':
-    distribution => 'jdk',
+    distribution => 'jre',
     version      => 'latest',
     before       => Class['jenkins'],
   }
