@@ -1,9 +1,9 @@
 class ci::profiles::jenkins {
   include ::jenkins
-  yumrepo { 'C6.2-extras':
+  yumrepo { 'extras':
     enabled  => '1',
   }
-  yumrepo { 'C6.2-updates':
+  yumrepo { 'updates':
     enabled  => '1',
   }
   class { 'java':
