@@ -1,15 +1,15 @@
 class ci::profiles::jenkins {
   # Classify all nodes with the site specific jenkins class.
-  class { 'jenkins': }
+  class { '::jenkins': }
   group {
     'puppet' :
       ensure => present;
   }
 
-  jenkins::plugin {
+  ::jenkins::plugin {
     'git' : ;
   }
-  class { 'java':
+  class { '::java':
     distribution => 'jre',
     version      => 'latest',
   }
