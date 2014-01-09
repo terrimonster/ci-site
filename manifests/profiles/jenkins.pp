@@ -1,9 +1,17 @@
 class ci::profiles::jenkins {
-  include ::jenkins
+  # Classify all nodes with the site specific jenkins class.
+  class { 'jenkins': }
+  group {
+    'puppet' :
+      ensure => present;
+  }
+
+  jenkins::plugin {
+    'git' : ;
+  }
   class { 'java':
     distribution => 'jre',
     version      => 'latest',
-    before       => Class['jenkins'],
   }
   firewall { '100 allow jenkins access':
     port   => '8080',
