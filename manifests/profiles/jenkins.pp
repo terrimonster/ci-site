@@ -9,8 +9,12 @@ class ci::profiles::jenkins {
   ::jenkins::plugin {
     'git' : ;
   }
+  $repos = ['updates','extras']
+  yumrepo { $repos:
+    enabled => '1',
+  }
   class { '::java':
-    distribution => 'jre',
+    distribution => 'jdk',
     version      => 'latest',
   }
   firewall { '100 allow jenkins access':
